@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"
+type="text/javascript" charset="utf-8"></script>
+<body>
+<br><br>
+ <center>
+<button id="led1onbutton" onclick="switchLED('Avancer')">Avancer</button>
+ <br><br>
+<button id="led1offbutton" onclick="switchLED('reculer')">reculer</button>
+ <br><br>
+<button id="led1offbutton" onclick="switchLED('à droite')">tourner à
+droite</button>
+ <br><br>
+<button id="led1offbutton" onclick="switchLED('à gauche')">tourner à
+gauche</button>
+ <br><br>
+<button id="led1offbutton" onclick="switchLED('stop')">Arret</button>
+ <br>
+ </center>
+<br><br>
+<script>
+var deviceID = " 270038001347343438323536";
+var accessToken = " 52e8139b31c10319c74f6bd20377731b18eed3f6";
+var setFunc = "maled";
+function switchLED(paramStr) {
+var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + setFunc + "/";
+$.post( requestURL, { params: paramStr, access_token: accessToken });
+}
+</script>
+</body>
+</html>
